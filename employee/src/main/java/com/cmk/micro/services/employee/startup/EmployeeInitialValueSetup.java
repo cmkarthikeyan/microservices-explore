@@ -29,9 +29,6 @@ public class EmployeeInitialValueSetup  implements CommandLineRunner{
 		cmk.setPrimaryAddress(cmkAddress);
 		om.setPrimaryAddress(omAddress);
 		
-		cmkAddress.setEmployee(cmk);
-		omAddress.setEmployee(om);
-		
 		employeeRepository.save(cmk);
 		employeeRepository.save(om);
 	}

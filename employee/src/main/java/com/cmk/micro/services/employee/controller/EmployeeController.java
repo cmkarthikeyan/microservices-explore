@@ -7,12 +7,10 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.hateoas.server.mvc.WebMvcLinkBuilder;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 import com.cmk.micro.services.employee.dto.EmployeeDTO;
 import com.cmk.micro.services.employee.service.EmployeeService;
+import org.springframework.http.HttpHeaders;
 
 import io.swagger.v3.oas.annotations.Operation;
 
@@ -45,5 +43,12 @@ public class EmployeeController {
 		employee.add(linkToSelf.withRel("self-link"));
 		
 		return new ResponseEntity<>(employee, HttpStatus.OK);
-	} 
+	}
+	@PostMapping("/")
+	public ResponseEntity createEmployee(@RequestBody EmployeeDTO employeeDTO) {
+		EmployeeDTO employee = employeeService.createEmployee(employeeDTO);
+		HttpHeaders headers = new HttpHeaders();
+		headers.add("location", "/api/v1/employees/" + employee.getId());
+		return new ResponseEntity(headers, HttpStatus.CREATED);
+	}
 }

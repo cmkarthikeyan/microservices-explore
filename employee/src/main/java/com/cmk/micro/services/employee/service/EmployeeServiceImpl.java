@@ -4,6 +4,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 
+import com.cmk.micro.services.employee.dao.model.Employee;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -44,9 +45,8 @@ public class EmployeeServiceImpl implements EmployeeService {
 	}
 
 	@Override
-	public void createEmployee() {
-		// TODO Auto-generated method stub
-
+	public EmployeeDTO createEmployee(EmployeeDTO employeeDto) {
+		Employee employee = employeeMapper.getEntityFromDTO(employeeDto);
+        return employeeMapper.getDTOfromEntity(employeeRepository.save(employee));
 	}
-
 }

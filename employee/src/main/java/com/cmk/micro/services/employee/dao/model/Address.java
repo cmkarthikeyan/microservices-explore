@@ -27,8 +27,5 @@ public class Address {
  private String city;
  private String state;
  private long pincode;
- 
- @OneToOne(fetch = FetchType.LAZY, optional = false)
- @JoinColumn(name="id")
- private Employee employee;
+
 }

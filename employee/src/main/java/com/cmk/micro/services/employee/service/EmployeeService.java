@@ -1,6 +1,8 @@
 package com.cmk.micro.services.employee.service;
 
 import java.util.List;
+
+import com.cmk.micro.services.employee.dao.model.Employee;
 import org.springframework.stereotype.Service;
 
 import com.cmk.micro.services.employee.dto.EmployeeDTO;
@@ -13,6 +15,6 @@ public interface EmployeeService {
 
 	EmployeeDTO getEmployee(Long id) throws EmployeeNotFoundException;
 
-	void createEmployee();
+	EmployeeDTO createEmployee(EmployeeDTO employeeDTO);
 
 }

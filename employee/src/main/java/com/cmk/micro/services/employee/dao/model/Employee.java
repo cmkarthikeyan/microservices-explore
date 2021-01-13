@@ -26,8 +26,8 @@ public class Employee {
 	private String name;
 	private int age;
 	
-	@OneToOne(mappedBy = "employee" , fetch = FetchType.LAZY,
-            cascade = CascadeType.ALL)
+	@OneToOne(cascade = CascadeType.ALL)
+	@JoinColumn(name = "address_id")
     private Address primaryAddress;
 	
 	
