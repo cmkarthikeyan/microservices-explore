@@ -15,7 +15,7 @@ import com.cmk.micro.services.employee.service.exception.EmployeeNotFoundExcepti
 
 
 @RestControllerAdvice
-public class RestExceptionHandler {
+public class EmployeeServiceExceptionHandler {
 
 	
 
