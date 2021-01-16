@@ -1,0 +1,9 @@
+management:  endpoints:    web:      exposure:        include: refresh,metrics,beans        
+
+spring:  
+  application:
+    name: springcloudconfigclient
+  cloud:
+    config:
+      uri: http://localhost:8888
+      fail-fast: true
